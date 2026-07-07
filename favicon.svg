@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Homeschool Credit Compass favicon -->
+  <circle cx="32" cy="32" r="31" fill="#fafaf7"/>
+  <circle cx="32" cy="32" r="28.5" fill="none" stroke="#a5762a" stroke-width="4"/>
+  <polygon points="32,7 37,32 32,57 27,32" fill="#a5762a"/>
+  <polygon points="7,32 32,27 57,32 32,37" fill="#20303c"/>
+  <circle cx="32" cy="32" r="4" fill="#20303c"/>
+</svg>
