@@ -409,3 +409,15 @@ footer a { color: var(--muted); }
   }
   h1, h2 { break-after: avoid; }
 }
+
+/* ---- disclaimer ---- */
+.disclaimer {
+  max-width: var(--max);
+  margin: 1.5rem 0 0;
+  padding: 0.7rem 1rem;
+  border: 1px dashed var(--line);
+  border-radius: 6px;
+  font-size: 0.83rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
