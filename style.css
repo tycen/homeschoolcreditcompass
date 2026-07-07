@@ -421,3 +421,14 @@ footer a { color: var(--muted); }
   line-height: 1.5;
   color: var(--muted);
 }
+
+/* ---- inline PDF previews on sample cards ---- */
+.pdf-preview object {
+  display: block;
+  width: 100%;
+  height: 32rem;
+  margin-top: 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+}
