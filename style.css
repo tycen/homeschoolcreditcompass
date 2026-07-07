@@ -65,8 +65,9 @@ a:hover { color: var(--ink); }
 /* ---- eyebrow labels: mono, like map grid references ---- */
 .eyebrow {
   font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.22em;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent-dark);
   display: block;
@@ -110,9 +111,39 @@ a:hover { color: var(--ink); }
   padding: 0.25rem 0.1rem;
 }
 .site-nav a.navlink:hover { color: var(--accent-dark); }
-.site-nav a.navlink[aria-current="page"] {
-  color: var(--accent-dark);
-  border-bottom: 2px solid var(--accent);
+
+/* page links = pill tabs */
+.nav-pages { display: flex; gap: 0.4rem; }
+.nav-pages a.navlink {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+}
+.nav-pages a.navlink[aria-current="page"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.nav-pages a.navlink[aria-current="page"]:hover { color: #fff; }
+
+/* in-page anchors = plain links behind a labeled divider */
+.nav-anchors {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--line);
+}
+.nav-label {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.75;
+}
+@media (max-width: 44rem) {
+  .nav-anchors { border-left: none; padding-left: 0; }
 }
 
 /* ---- hero ---- */
