@@ -1,5 +1,5 @@
 /* ============================================================
-   Homeschool Credit Compass — style.css
+   Homeschool Credit Compass - style.css
    Palette: chart ink / paper / compass brass / trail pine
    Type: Young Serif (display) · Public Sans (body) · IBM Plex Mono (labels)
    ============================================================ */
@@ -126,13 +126,14 @@ a:hover { color: var(--ink); }
 }
 .nav-pages a.navlink[aria-current="page"]:hover { color: #fff; }
 
-/* in-page anchors = plain links behind a labeled divider */
+/* in-page anchors: own row below the brand + page tabs */
 .nav-anchors {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.9rem;
-  padding-left: 1rem;
-  border-left: 1px solid var(--line);
+  flex-basis: 100%;
+  padding: 0.15rem 0 0.1rem;
 }
 .nav-label {
   font-family: "IBM Plex Mono", ui-monospace, monospace;
@@ -141,9 +142,6 @@ a:hover { color: var(--ink); }
   text-transform: uppercase;
   color: var(--muted);
   opacity: 0.75;
-}
-@media (max-width: 44rem) {
-  .nav-anchors { border-left: none; padding-left: 0; }
 }
 
 /* ---- hero ---- */
@@ -393,7 +391,7 @@ footer .inner {
 footer a { color: var(--muted); }
 
 /* ============================================================
-   PRINT — clean handout: nav hidden, links spelled out.
+   PRINT - clean handout: nav hidden, links spelled out.
    (JS opens all <details> on beforeprint.)
    ============================================================ */
 @media print {
