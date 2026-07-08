@@ -30,6 +30,10 @@
       <a class="navlink" href="index.html" aria-current="page">The College Track</a>
       <a class="navlink" href="transcripts.html">Transcripts</a>
     </div>
+    <button type="button" class="qr-btn no-print" id="qr-open" aria-haspopup="dialog" aria-label="Show QR code for this site">
+      <svg width="13" height="13" viewBox="0 0 13 13" aria-hidden="true"><g fill="currentColor"><rect x="0" y="0" width="5" height="5"/><rect x="8" y="0" width="5" height="5"/><rect x="0" y="8" width="5" height="5"/><rect x="8" y="8" width="2" height="2"/><rect x="11" y="11" width="2" height="2"/><rect x="8" y="11" width="2" height="2"/><rect x="11" y="8" width="2" height="2"/></g></svg>
+      QR
+    </button>
     <div class="nav-anchors">
       <span class="nav-label">On this page:</span>
       <a class="navlink" href="#toolbox">Toolbox</a>
@@ -40,18 +44,10 @@
 </nav>
 
 <header class="hero">
-  <div class="hero-wrap">
-    <div class="hero-text">
   <span class="eyebrow">Page one of two · The affordable college track</span>
   <h1>Earn free or low-cost college credit before college.</h1>
   <p class="lede">Your student can bank real, transferable college credit during high school (much of it free) using tools your family may not have heard of. This page is the map: what each tool is, what it costs, which paths families commonly take, and how to make sure the credits will actually count at the destination.</p>
   <a class="page-switch" href="transcripts.html">Looking for homeschool transcript help instead? That's page two &rarr;</a>
-    </div>
-    <figure class="hero-qr no-print">
-      <img src="qr-compass.png" alt="QR code linking to homeschoolcreditcompass.com" width="150" height="150">
-      <figcaption>Scan to open this site</figcaption>
-    </figure>
-  </div>
   <p class="disclaimer"><strong>A quick disclaimer:</strong> this site shares one family's research and experience, not professional, legal, or financial advice. Programs, prices, and policies change; verify everything with official sources before acting on it. Use at your own discretion. No responsibility is assumed for decisions made based on this information.</p>
 </header>
 
@@ -360,6 +356,9 @@
 
 <script>
   // Presenter controls: collapse before presenting, expand for reference/printing.
+  const qrModal = document.getElementById('qr-modal');
+  document.getElementById('qr-open').addEventListener('click', () => qrModal.showModal());
+  qrModal.addEventListener('click', () => qrModal.close());
   const all = () => document.querySelectorAll('details');
   document.getElementById('expand-all').addEventListener('click', () => all().forEach(d => d.open = true));
   document.getElementById('collapse-all').addEventListener('click', () => all().forEach(d => d.open = false));
@@ -368,6 +367,13 @@
   window.addEventListener('beforeprint', () => { wasOpen = [...all()].map(d => d.open); all().forEach(d => d.open = true); });
   window.addEventListener('afterprint', () => { [...all()].forEach((d, i) => d.open = wasOpen[i]); });
 </script>
+
+
+<dialog id="qr-modal" aria-label="QR code for homeschoolcreditcompass.com">
+  <img src="qr-compass.png" alt="QR code linking to homeschoolcreditcompass.com">
+  <p class="qr-url">homeschoolcreditcompass.com</p>
+  <p class="qr-hint">press Esc or click anywhere to close</p>
+</dialog>
 
 <script data-goatcounter="https://homeschoolcreditcompass.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>

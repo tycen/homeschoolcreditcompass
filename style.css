@@ -433,32 +433,47 @@ footer a { color: var(--muted); }
   background: #fff;
 }
 
-/* ---- hero QR (projector-friendly) ---- */
-.hero-wrap {
-  display: flex;
-  gap: 2.5rem;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-.hero-text { min-width: 0; }
-.hero-qr { margin: 0; flex: none; text-align: center; }
-.hero-qr img {
-  display: block;
-  width: 150px;
-  height: 150px;
-  padding: 6px;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-}
-.hero-qr figcaption {
+/* ---- QR button + full-screen modal ---- */
+.qr-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.64rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
   color: var(--muted);
-  margin-top: 0.45rem;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
 }
-@media (max-width: 44rem) {
-  .hero-qr { display: none; }
+.qr-btn:hover { border-color: var(--accent); color: var(--accent-dark); }
+
+#qr-modal {
+  border: none;
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  background: #fff;
+  text-align: center;
+  max-width: none;
+}
+#qr-modal::backdrop { background: rgba(32, 48, 60, 0.85); }
+#qr-modal img {
+  display: block;
+  width: min(70vmin, 560px);
+  height: auto;
+  margin: 0 auto;
+}
+#qr-modal .qr-url {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: clamp(1rem, 2.6vmin, 1.4rem);
+  font-weight: 600;
+  color: var(--ink);
+  margin: 1rem 0 0.25rem;
+}
+#qr-modal .qr-hint {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0;
 }
