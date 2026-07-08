@@ -477,3 +477,56 @@ footer a { color: var(--muted); }
   color: var(--muted);
   margin: 0;
 }
+
+/* ---- contact form ---- */
+.contact-form { margin: 1.5rem 0 1rem; max-width: 42rem; }
+.field-row { display: grid; gap: 1rem; }
+@media (min-width: 40rem) { .field-row { grid-template-columns: 1fr 1fr; } }
+.field { display: block; margin-bottom: 1rem; }
+.field > span {
+  display: block;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+.field > span em { text-transform: none; letter-spacing: 0; font-style: italic; opacity: 0.8; }
+.field input,
+.field textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem;
+}
+.field textarea { resize: vertical; }
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(165, 118, 42, 0.15);
+}
+/* honeypot: hidden from humans, catches bots */
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-foot { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 0.25rem; }
+.submit-btn {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.5rem;
+  cursor: pointer;
+}
+.submit-btn:hover { background: var(--accent-dark); }
+.submit-btn:disabled { opacity: 0.6; cursor: default; }
+.form-status { margin: 0; font-size: 0.9rem; }
+.form-status.ok { color: var(--pine-dark); }
+.form-status.err { color: #a3402f; }
