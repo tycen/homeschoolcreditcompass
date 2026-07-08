@@ -347,6 +347,12 @@
 
 </main>
 
+<dialog id="qr-modal" aria-label="QR code for homeschoolcreditcompass.com">
+  <img src="qr-compass.png" alt="QR code linking to homeschoolcreditcompass.com">
+  <p class="qr-url">homeschoolcreditcompass.com</p>
+  <p class="qr-hint">press Esc or click anywhere to close</p>
+</dialog>
+
 <footer>
   <div class="inner">
     <p><strong>Homeschool Credit Compass</strong> · <a href="index.html">The College Track</a> · <a href="transcripts.html">Transcripts</a> · <a href="samples/handout.pdf" target="_blank" rel="noopener">One-page handout (PDF)</a></p>
@@ -367,13 +373,6 @@
   window.addEventListener('beforeprint', () => { wasOpen = [...all()].map(d => d.open); all().forEach(d => d.open = true); });
   window.addEventListener('afterprint', () => { [...all()].forEach((d, i) => d.open = wasOpen[i]); });
 </script>
-
-
-<dialog id="qr-modal" aria-label="QR code for homeschoolcreditcompass.com">
-  <img src="qr-compass.png" alt="QR code linking to homeschoolcreditcompass.com">
-  <p class="qr-url">homeschoolcreditcompass.com</p>
-  <p class="qr-hint">press Esc or click anywhere to close</p>
-</dialog>
 
 <script data-goatcounter="https://homeschoolcreditcompass.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
