@@ -432,3 +432,33 @@ footer a { color: var(--muted); }
   border-radius: 6px;
   background: #fff;
 }
+
+/* ---- hero QR (projector-friendly) ---- */
+.hero-wrap {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.hero-text { min-width: 0; }
+.hero-qr { margin: 0; flex: none; text-align: center; }
+.hero-qr img {
+  display: block;
+  width: 150px;
+  height: 150px;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.hero-qr figcaption {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.45rem;
+}
+@media (max-width: 44rem) {
+  .hero-qr { display: none; }
+}
