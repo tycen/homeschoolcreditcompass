@@ -412,7 +412,7 @@ footer a { color: var(--muted); }
 
 /* ---- disclaimer ---- */
 .disclaimer {
-  max-width: var(--max);
+  max-width: 44rem;
   margin: 1.5rem 0 0;
   padding: 0.7rem 1rem;
   border: 1px dashed var(--line);
