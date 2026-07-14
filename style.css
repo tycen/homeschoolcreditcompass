@@ -530,3 +530,32 @@ footer a { color: var(--muted); }
 .form-status { margin: 0; font-size: 0.9rem; }
 .form-status.ok { color: var(--pine-dark); }
 .form-status.err { color: #a3402f; }
+
+/* ---- mobile nav: keep pills on one line, scroll sideways if needed ---- */
+@media (max-width: 44rem) {
+  .site-nav .inner { gap: 0.5rem 0.6rem; padding: 0.55rem 1rem; }
+  .brand { font-size: 0.92rem; gap: 0.4rem; }
+  .brand svg { width: 22px; height: 22px; }
+
+  .nav-pages {
+    flex-basis: 100%;
+    order: 2;
+    gap: 0.35rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.15rem;
+  }
+  .nav-pages::-webkit-scrollbar { display: none; }
+  .nav-pages a.navlink {
+    white-space: nowrap;      /* the fix: no more 3-line ovals */
+    flex: none;
+    font-size: 0.72rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  .qr-btn { order: 1; margin-left: auto; padding: 0.25rem 0.6rem; font-size: 0.72rem; }
+
+  .nav-anchors { order: 3; gap: 0.7rem; font-size: 0.9em; }
+  .nav-anchors a.navlink { font-size: 0.72rem; }
+}
