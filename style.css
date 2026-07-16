@@ -559,3 +559,43 @@ footer a { color: var(--muted); }
   .nav-anchors { order: 3; gap: 0.7rem; font-size: 0.9em; }
   .nav-anchors a.navlink { font-size: 0.72rem; }
 }
+
+/* ---- "Iowa only" badge: tricolor flag chip + label, pure CSS ---- */
+.iowa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  vertical-align: middle;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem 0.15rem 0.4rem;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+  line-height: 1;
+}
+.iowa-badge .flag {
+  display: inline-flex;
+  width: 15px;
+  height: 11px;
+  border: 1px solid var(--line);
+  border-radius: 1px;
+  overflow: hidden;
+  flex: none;
+}
+.iowa-badge .flag i {
+  display: block;
+  width: 5px;
+  height: 100%;
+}
+.iowa-badge .flag i.b { background: #003a8c; }
+.iowa-badge .flag i.w { background: #fff; }
+.iowa-badge .flag i.r { background: #c8102e; }
+
+/* when it sits in a card heading, nudge it up next to the h3 */
+.card h3 .iowa-badge { margin-left: 0.5rem; }
