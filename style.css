@@ -609,3 +609,50 @@ summary .iowa-badge {
 }
 summary .iowa-badge .flag { width: 17px; height: 12px; }
 summary .iowa-badge .flag i { width: 5.67px; }
+
+/* ---- collapsible top bar ---- */
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+}
+.nav-toggle:hover { border-color: var(--accent); color: var(--accent-dark); }
+.nav-toggle svg { transition: transform 0.15s ease; }
+.site-nav.collapsed .nav-toggle svg { transform: rotate(-90deg); }
+.site-nav.collapsed .nav-pages,
+.site-nav.collapsed .nav-anchors { display: none; }
+.site-nav.collapsed .inner { padding-top: 0.35rem; padding-bottom: 0.35rem; }
+@media (prefers-reduced-motion: reduce) {
+  .nav-toggle svg { transition: none; }
+}
+
+/* ---- heading anchor links (deep links) ---- */
+.anchor {
+  margin-left: 0.4rem;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.7em;
+  font-weight: 400;
+  color: var(--accent);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+.anchor:focus { opacity: 1; }
+.anchor:hover { color: var(--ink); }
+@media (prefers-reduced-motion: reduce) {
+  .anchor { transition: none; }
+}
+/* keep anchored headings clear of the sticky bar */
+:target { scroll-margin-top: 5rem; }
