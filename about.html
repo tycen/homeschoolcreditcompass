@@ -26,12 +26,16 @@
       </svg>
       Homeschool Credit Compass
     </a>
-    <div class="nav-pages">
+    <div class="nav-pages" id="nav-pages">
       <a class="navlink" href="index.html">The College Track</a>
       <a class="navlink" href="transcripts.html">Transcripts</a>
       <a class="navlink" href="explore.html">Worth Exploring</a>
       <a class="navlink" href="about.html" aria-current="page">About</a>
     </div>
+    <button type="button" class="nav-toggle no-print" id="nav-toggle" aria-expanded="true" aria-controls="nav-pages" title="Collapse navigation">
+      <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5 L6 8.5 L10 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="nav-toggle-label">Hide</span>
+    </button>
     <button type="button" class="qr-btn no-print" id="qr-open" aria-haspopup="dialog" aria-label="Show QR code for this site">
       <svg width="13" height="13" viewBox="0 0 13 13" aria-hidden="true"><g fill="currentColor"><rect x="0" y="0" width="5" height="5"/><rect x="8" y="0" width="5" height="5"/><rect x="0" y="8" width="5" height="5"/><rect x="8" y="8" width="2" height="2"/><rect x="11" y="11" width="2" height="2"/><rect x="8" y="11" width="2" height="2"/><rect x="11" y="8" width="2" height="2"/></g></svg>
       QR
@@ -97,7 +101,7 @@
 <footer>
   <div class="inner">
     <p><strong>Homeschool Credit Compass</strong> · <a href="index.html">The College Track</a> · <a href="transcripts.html">Transcripts</a> · <a href="explore.html">Worth Exploring</a> · <a href="about.html">About</a> · <a href="samples/handout.pdf" target="_blank" rel="noopener">One-page handout (PDF)</a></p>
-    <p>© 2026 Homeschool Credit Compass. One family's research and experience, not professional, legal, or financial advice; programs, prices, and policies change, so verify everything with official sources before acting on it. Site focus and direction are ours; content and wording were generated with the help of AI tools. Free to share for noncommercial use under <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license noopener">CC BY-NC 4.0</a>.</p>
+    <p>© 2026 Homeschool Credit Compass. One family's research and experience, not professional, legal, or financial advice; programs, prices, and policies change, so verify everything with official sources before acting on it. Site focus and direction are ours; content and wording were generated with the help of AI tools. Free to share for noncommercial use under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="license noopener">CC BY-NC 4.0</a>.</p>
   </div>
 </footer>
 
@@ -133,6 +137,52 @@
       btn.disabled = false;
     }
   });
+</script>
+
+<script>
+  // Deep-link anchors: give headings stable ids and a clickable # link.
+  (function () {
+    const slug = s => s.toLowerCase().trim()
+      .replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-');
+    const used = new Set();
+    document.querySelectorAll('main h2, main h3, .hero h1').forEach(h => {
+      if (!h.id) {
+        let base = slug(h.textContent) || 'section', id = base, n = 2;
+        while (used.has(id) || document.getElementById(id)) { id = base + '-' + n++; }
+        h.id = id;
+      }
+      used.add(h.id);
+      if (h.querySelector('.anchor')) return;
+      const a = document.createElement('a');
+      a.className = 'anchor no-print';
+      a.href = '#' + h.id;
+      a.setAttribute('aria-label', 'Link to this section');
+      a.textContent = '#';
+      h.appendChild(a);
+    });
+  })();
+
+  // Collapsible top bar: more screen room when zoomed in or presenting.
+  (function () {
+    const nav = document.querySelector('.site-nav');
+    const btn = document.getElementById('nav-toggle');
+    if (!nav || !btn) return;
+    const label = btn.querySelector('.nav-toggle-label');
+    const apply = collapsed => {
+      nav.classList.toggle('collapsed', collapsed);
+      btn.setAttribute('aria-expanded', String(!collapsed));
+      btn.title = collapsed ? 'Show navigation' : 'Collapse navigation';
+      if (label) label.textContent = collapsed ? 'Menu' : 'Hide';
+    };
+    let start = false;
+    try { start = localStorage.getItem('hcc-nav-collapsed') === '1'; } catch (e) {}
+    apply(start);
+    btn.addEventListener('click', () => {
+      const collapsed = !nav.classList.contains('collapsed');
+      apply(collapsed);
+      try { localStorage.setItem('hcc-nav-collapsed', collapsed ? '1' : '0'); } catch (e) {}
+    });
+  })();
 </script>
 
 <script data-goatcounter="https://homeschoolcreditcompass.goatcounter.com/count"
