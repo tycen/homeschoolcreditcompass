@@ -656,3 +656,16 @@ h3:hover .anchor,
 }
 /* keep anchored headings clear of the sticky bar */
 :target { scroll-margin-top: 5rem; }
+
+/* ---- keep the QR + Hide buttons together (wrap as a unit, never orphan) ---- */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: none;
+}
+/* tighten the bar so all of it fits on one row at higher zoom levels */
+.site-nav .inner { gap: 0.5rem 0.6rem; }
+.nav-pages { gap: 0.3rem; }
+.nav-pages a.navlink { padding: 0.3rem 0.7rem; }
+.qr-btn, .nav-toggle { padding: 0.3rem 0.65rem; }
