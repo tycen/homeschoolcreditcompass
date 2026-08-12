@@ -669,3 +669,14 @@ h3:hover .anchor,
 .nav-pages { gap: 0.3rem; }
 .nav-pages a.navlink { padding: 0.3rem 0.7rem; }
 .qr-btn, .nav-toggle { padding: 0.3rem 0.65rem; }
+
+/* ---- final nav tightening: fit brand + pills + buttons on one row ---- */
+.site-nav .inner { gap: 0.4rem 0.5rem; padding: 0.5rem 1.25rem; }
+.brand { font-size: 0.95rem; gap: 0.4rem; }
+.brand svg { width: 23px; height: 23px; }
+.nav-pages { gap: 0.28rem; }
+.nav-pages a.navlink { font-size: 0.73rem; padding: 0.28rem 0.62rem; letter-spacing: 0.03em; }
+.nav-actions { gap: 0.3rem; }
+.qr-btn, .nav-toggle { font-size: 0.7rem; padding: 0.28rem 0.55rem; gap: 0.3rem; }
+.nav-anchors { gap: 0.7rem; }
+.nav-anchors a.navlink { font-size: 0.73rem; }
